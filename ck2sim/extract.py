@@ -4,7 +4,7 @@ Tables (every row carries run_id and snapshot_date):
   characters     one row per character (alive and dead)
   edges          character -> character links (family, liege, lover, killer...)
   titles         one row per title at snapshot time
-  title_history  every holder change of every title (reigns, for survival analysis)
+  title_history  every holder change of every title (reigns)
   realms         one row per independent realm (top liege) at snapshot time
   provinces      one row per province at snapshot time
 
@@ -414,7 +414,7 @@ def add_evolution(realms: list[dict], title_history: list[dict], window: float =
                   tolerance: float = 1.5) -> None:
     """Add past-looking evolution features over `window` years to each realm row
     (in place). Only data from snapshots <= the row's date is used, so the
-    features are safe for forecasting (no look-ahead).
+    features never read the future (no look-ahead).
 
     The reference row is the same realm's snapshot closest to `window` years
     earlier, within +-tolerance years; if none exists the deltas are empty."""
