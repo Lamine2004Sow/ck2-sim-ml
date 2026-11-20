@@ -58,3 +58,4 @@ Only the Python standard library is required.
   is false. Change the window with `--window`. Covered by `tests/test_evolution.py`.
 
 Tools and why each one is used: [docs/outils.md](docs/outils.md).
+Known data issues, their causes and planned fixes: [docs/limites.md](docs/limites.md).
